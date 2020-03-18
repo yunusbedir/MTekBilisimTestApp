@@ -5,18 +5,13 @@ import android.util.Patterns
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.yunusbedir.mtekbilisimtestapp.R
-import com.yunusbedir.mtekbilisimtestapp.StaticValues
 import com.yunusbedir.mtekbilisimtestapp.database.UserRepository
 import com.yunusbedir.mtekbilisimtestapp.ui.activity.dashBoardActivity.DashBoardActivity
 import com.yunusbedir.mtekbilisimtestapp.ui.activity.mainActivity.MainActivity
 import com.yunusbedir.mtekbilisimtestapp.ui.fragment.registerFragment.RegisterFragment
-import com.yunusbedir.mtekbilisimtestapp.util.PASSWORD_PATTERN
-import com.yunusbedir.mtekbilisimtestapp.util.extStartActivity
-import com.yunusbedir.mtekbilisimtestapp.util.extToast
-import com.yunusbedir.mtekbilisimtestapp.util.setFrameLayout
+import com.yunusbedir.mtekbilisimtestapp.util.*
 import kotlinx.android.synthetic.main.fragment_login.*
 
 
@@ -40,43 +35,15 @@ class LoginFragment : Fragment() {
             activity?.setFrameLayout(RegisterFragment())
         }
         btnLogin.setOnClickListener {
-            var isEmail = validateEmail()
-            var isPassword = validatePassword()
-            if (isEmail || isPassword) {
+            val isValidateEmail = validateEmail(textInputEmail)
+            val isValidatePassword = validatePassword(textInputPassword)
+            if (isValidateEmail && isValidatePassword) {
                 login()
             }
         }
         super.onViewCreated(view, savedInstanceState)
     }
 
-    private fun validateEmail(): Boolean {
-        val email: String = etEmail.text.toString()
-        if (email == "") {
-            textInputEmail.error = "Field can't be empty"
-            return false
-        } else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-            textInputEmail.error = "Please enter a valid email address"
-            return false
-        } else {
-            textInputEmail.error = null
-        }
-        return true
-    }
-
-    private fun validatePassword(): Boolean {
-
-        val password: String = etPassword.text.toString()
-        if (password == "") {
-            textInputPassword.error = "Field can't be empty"
-            return false
-        } else if (password.length < 7) {
-            textInputPassword.error = "Password too short";
-            return false
-        } else {
-            textInputPassword.error = null
-        }
-        return true
-    }
 
     private fun login() {
         val email: String = etEmail.text.toString()
@@ -88,8 +55,9 @@ class LoginFragment : Fragment() {
             textInputEmail.editText?.setText("")
             textInputPassword.editText?.setText("")
         } else {
-            StaticValues.user = user
+            DataSource.user = user
             context?.extStartActivity(DashBoardActivity::class.java)
+            activity?.finish()
         }
 
     }

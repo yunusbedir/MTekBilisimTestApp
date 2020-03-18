@@ -21,5 +21,5 @@ data class User(
     @ColumnInfo(name = "image_url")
     val urlImage: String,
     @PrimaryKey(autoGenerate = true)
-    val ID: Int
+    val ID: Int = 0
 )
