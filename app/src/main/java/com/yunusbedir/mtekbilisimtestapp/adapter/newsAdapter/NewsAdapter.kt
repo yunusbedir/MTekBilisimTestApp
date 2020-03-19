@@ -33,7 +33,7 @@ class NewsAdapter(var context: Context, rssBaseModel: RSSBaseModel) :
     override fun onBindViewHolder(holder: NewsViewHolder, position: Int) {
         holder.bind(listNews[position]) {
             val bundle = Bundle()
-            bundle.putString(Key.NEWS_URL.name, listNews[position].link)
+            bundle.putParcelable(Key.NEWS_MODEL.name , listNews[position])
             context.extStartActivity(NewsActivity::class.java, bundle)
         }
     }

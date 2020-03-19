@@ -1,5 +1,9 @@
 package com.yunusbedir.mtekbilisimtestapp.model
 
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
+
+@Parcelize
 data class Items(
 	val title: String,
 	val pubDate: String,
@@ -11,4 +15,4 @@ data class Items(
 	val content: String,
 	val enclosure: Enclosure,
 	val categories: List<String>
-)
+) : Parcelable

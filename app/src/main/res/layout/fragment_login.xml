@@ -30,6 +30,7 @@
             <EditText
                 android:id="@+id/etEmail"
                 style="@style/modifiedEditText"
+                android:text="yunusbedir@outlook.com.tr"
                 android:inputType="textEmailAddress"
                 android:maxLines="1"
                 android:hint="@string/login_email_hint"/>
@@ -40,6 +41,7 @@
             style="@style/parent"
             android:layout_marginTop="@dimen/loginViewsMargin">
             <EditText
+                android:text="1234567"
                 android:id="@+id/etPassword"
                 style="@style/modifiedEditText"
                 android:hint="@string/login_password_hint"

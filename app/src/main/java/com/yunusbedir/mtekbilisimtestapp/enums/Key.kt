@@ -9,5 +9,6 @@ enum class Key {
     PASSWORD,
     BUNDLE,
     IMAGE_URL,
-    NEWS_URL
+    NEWS_URL,
+    NEWS_MODEL,
 }

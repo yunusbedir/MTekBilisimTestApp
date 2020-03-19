@@ -9,8 +9,9 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".ui.activity.newsActivity.NewsActivity"></activity>
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true">
+        <activity android:name=".ui.activity.newsActivity.NewsActivity"/>
         <activity android:name=".ui.activity.dashBoardActivity.DashBoardActivity" />
         <activity android:name=".ui.activity.mainActivity.MainActivity">
             <intent-filter>
