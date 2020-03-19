@@ -9,6 +9,7 @@ import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.navigation.NavigationView
 import com.google.android.material.tabs.TabLayout
 import com.yunusbedir.mtekbilisimtestapp.R
+import com.yunusbedir.mtekbilisimtestapp.adapter.categoryAdapter.CategoryFragmentAdapter
 import kotlinx.android.synthetic.main.activity_dash_board.*
 import kotlinx.android.synthetic.main.app_bar_main.*
 import kotlinx.android.synthetic.main.content_main.*
@@ -22,6 +23,12 @@ class DashBoardActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
         setDrawer()
         setTabLayout()
         setNavigationView()
+        setPagerAdapter()
+    }
+
+    private fun setPagerAdapter() {
+        val pagerAdapter = CategoryFragmentAdapter(this, supportFragmentManager)
+        viewpager.adapter = pagerAdapter
     }
 
     private fun setNavigationView() {
@@ -35,6 +42,7 @@ class DashBoardActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
 
     private fun setTabLayout() {
         tabsSliding.setupWithViewPager(viewpager)
+        tabsSliding.tabMode = TabLayout.GRAVITY_CENTER
         tabsSliding.tabGravity = TabLayout.GRAVITY_FILL
 
     }
@@ -59,16 +67,16 @@ class DashBoardActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.nav_news ->{
+            R.id.nav_news -> {
                 viewpager.currentItem = 0
             }
-            R.id.nav_pharmacy ->{
+            R.id.nav_pharmacy -> {
                 viewpager.currentItem = 1
             }
-            R.id.nav_profile ->{
+            R.id.nav_profile -> {
                 viewpager.currentItem = 2
             }
-            R.id.nav_log_out ->{
+            R.id.nav_log_out -> {
                 //logout
             }
         }
