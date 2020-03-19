@@ -1,9 +1,8 @@
 package com.yunusbedir.mtekbilisimtestapp.adapter.newsAdapter
 
 import android.view.View
-import androidx.core.net.toUri
 import androidx.recyclerview.widget.RecyclerView
-import com.yunusbedir.mtekbilisimtestapp.model.NewsModel
+import com.yunusbedir.mtekbilisimtestapp.model.Items
 import kotlinx.android.synthetic.main.item_news.view.*
 
 
@@ -12,10 +11,10 @@ import kotlinx.android.synthetic.main.item_news.view.*
  */
 class NewsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-    fun bind(newsModel: NewsModel, onClick: (newModel: NewsModel) -> Unit) {
+    fun bind(newsModel: Items, onClick: (newModel: Items) -> Unit) {
         itemView.tvTitle.text = newsModel.title
         itemView.tvDescription.text = newsModel.description
-        itemView.tvDate.text = newsModel.date
+        itemView.tvDate.text = newsModel.pubDate
         //set Image glide
 
         itemView.setOnClickListener {

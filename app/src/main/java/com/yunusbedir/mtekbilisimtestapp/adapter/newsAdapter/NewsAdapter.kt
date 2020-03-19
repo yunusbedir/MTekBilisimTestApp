@@ -7,7 +7,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.yunusbedir.mtekbilisimtestapp.R
 import com.yunusbedir.mtekbilisimtestapp.enums.Key
-import com.yunusbedir.mtekbilisimtestapp.model.NewsModel
+import com.yunusbedir.mtekbilisimtestapp.model.Items
+import com.yunusbedir.mtekbilisimtestapp.model.RSSBaseModel
 import com.yunusbedir.mtekbilisimtestapp.ui.activity.newsActivity.NewsActivity
 import com.yunusbedir.mtekbilisimtestapp.util.extStartActivity
 
@@ -15,8 +16,11 @@ import com.yunusbedir.mtekbilisimtestapp.util.extStartActivity
 /**
  * Created by YUNUS BEDİR on 19.03.2020.
  */
-class NewsAdapter(var context: Context, var listNews: List<NewsModel>) :
+class NewsAdapter(var context: Context, rssBaseModel: RSSBaseModel) :
     RecyclerView.Adapter<NewsViewHolder>() {
+
+    private var listNews: List<Items> = rssBaseModel.items
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NewsViewHolder {
         val view = LayoutInflater.from(context).inflate(R.layout.item_news, parent, false)
         return NewsViewHolder(view)
@@ -29,8 +33,8 @@ class NewsAdapter(var context: Context, var listNews: List<NewsModel>) :
     override fun onBindViewHolder(holder: NewsViewHolder, position: Int) {
         holder.bind(listNews[position]) {
             val bundle = Bundle()
-            bundle.putString(Key.NEWS_URL.name, listNews[position].newsUrl)
-            context.extStartActivity(NewsActivity::class.java , bundle)
+            bundle.putString(Key.NEWS_URL.name, listNews[position].link)
+            context.extStartActivity(NewsActivity::class.java, bundle)
         }
     }
 }
