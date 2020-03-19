@@ -15,4 +15,6 @@
     <string name="profile">PROFILE</string>
     <string name="pharmacy">PHARMACY</string>
     <string name="news">NEWS</string>
+    <string name="filter">Filter</string>
+    <string name="pharmacy_name">Pharmacy Name</string>
 </resources>
