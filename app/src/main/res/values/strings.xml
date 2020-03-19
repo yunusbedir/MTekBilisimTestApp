@@ -9,4 +9,6 @@
     <string name="mobile_number">Mobile Number</string>
     <string name="login">Login</string>
     <string name="forgot_password">Forgot Password?</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
 </resources>

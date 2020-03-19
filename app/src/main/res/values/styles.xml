@@ -18,8 +18,6 @@
         <item name="android:layout_height">wrap_content</item>
     </style>
 
-    <!--designs for login and register-->
-
     <style name="loginParent" parent="parent">
         <item name="android:layout_height">match_parent</item>
         <item name="android:background">@color/loginBkColor</item>
