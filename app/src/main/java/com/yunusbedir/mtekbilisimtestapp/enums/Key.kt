@@ -7,5 +7,7 @@ package com.yunusbedir.mtekbilisimtestapp.enums
 enum class Key {
     EMAIL,
     PASSWORD,
-    BUNDLE
+    BUNDLE,
+    IMAGE_URL,
+    NEWS_URL
 }
