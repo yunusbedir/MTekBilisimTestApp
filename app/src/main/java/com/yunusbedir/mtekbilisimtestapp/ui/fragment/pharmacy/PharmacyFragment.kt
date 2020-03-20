@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.yunusbedir.mtekbilisimtestapp.R
 import com.yunusbedir.mtekbilisimtestapp.adapter.pharmacyAdapter.PharmacyAdapter
@@ -122,12 +123,9 @@ class PharmacyFragment : Fragment() {
     }
 
     private fun setRetrofit(city: String, province: String) {
-
         progressBar.visibility = View.VISIBLE
-
         val service = PharmacyClientInstance.getInstance()?.create(
             PharmacyAPIService::class.java)
-
         val call = service?.getPharmacyBaseModel(city, province)!!
         call.enqueue(object : Callback<PharmacyBaseModel> {
             override fun onFailure(call: Call<PharmacyBaseModel>, t: Throwable?) {
@@ -141,10 +139,17 @@ class PharmacyFragment : Fragment() {
             ) {
                 if (response.isSuccessful) {
                     setRecyclerView(response.body())
+                }else {
+                    if (response.code() == 429) {
+                        Toast.makeText(
+                            DashBoardActivity.appCompatActivity,
+                            "limit is reached",
+                            Toast.LENGTH_LONG
+                        ).show()
+                    }
                 }
                 progressBar.visibility = View.GONE
             }
-
         })
     }
 
