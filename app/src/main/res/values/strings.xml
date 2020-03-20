@@ -18,4 +18,8 @@
     <string name="pharmacy_name">Pharmacy Name</string>
     <string name="update">Update</string>
     <string name="log_out">Log Out</string>
+    <string name="news_t_tle">NEWS TİTLE</string>
+    <string name="instagram">Instagram</string>
+    <string name="twitter">Twitter</string>
+    <string name="facebook">Facebook</string>
 </resources>

@@ -2,7 +2,9 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/cardView"
-    android:layout_margin="4dp"
+    style="@style/cardView"
+    android:layout_marginVertical="4dp"
+    android:layout_marginHorizontal="8dp"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
@@ -13,7 +15,7 @@
 
         <TextView
             android:id="@+id/tvName"
-            style="@style/TextAppearance.AppCompat.Title"
+            style="@style/title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"

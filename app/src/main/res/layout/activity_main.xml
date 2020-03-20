@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    style="@style/loginParent"
+    style="@style/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="168dp"
+        android:layout_gravity="bottom"
+        android:background="@drawable/bg_color_accent"/>
 
     <ScrollView
         android:layout_width="match_parent"
@@ -28,20 +34,14 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <LinearLayout
-
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="3"
                     android:background="@drawable/login_shape_bk"
                     android:orientation="vertical">
-
-                    <ImageView
-
+                    <View
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/ic_login_bk"
-                        android:contentDescription="login background" />
-
+                        android:layout_height="168dp" />
                 </LinearLayout>
 
             </LinearLayout>
@@ -74,4 +74,5 @@
         </RelativeLayout>
     </ScrollView>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>

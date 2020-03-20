@@ -1,60 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <LinearLayout
-        android:id="@+id/ll"
+    <View
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="3"
-        android:background="@drawable/login_shape_bk"
-        android:orientation="vertical"
+        android:layout_height="168dp"
+        android:background="@drawable/bg_color_accent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        style="@style/cardView"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginTop="64dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:background="@drawable/ic_login_bk" />
-
-    </LinearLayout>
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardView"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_marginHorizontal="32dp"
-        android:elevation="4dp"
-        app:layout_constraintBottom_toBottomOf="@id/ll"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ll">
-
         <FrameLayout
-            android:layout_margin="16dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center">
+            android:layout_gravity="center"
+            android:layout_margin="16dp">
 
             <ImageView
-                android:transitionName="profile_photo"
                 android:id="@+id/imgProfilePhoto"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
+                android:layout_margin="16dp"
                 android:scaleType="centerCrop"
-                android:src="@drawable/ic_profile" />
+                android:src="@drawable/ic_profile"
+                android:transitionName="profile_photo" />
 
-            <View
+            <androidx.cardview.widget.CardView
                 android:id="@+id/btnChangePhoto"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_gravity="end|bottom"
-                android:background="@drawable/ic_camera_alt_black_24dp"
-                android:backgroundTint="@color/colorPrimaryDark" />
+                android:layout_marginEnd="4dp"
+                android:layout_marginBottom="4dp"
+                android:background="@color/whiteCardColor"
+                android:clickable="true"
+                android:elevation="5dp"
+                android:focusable="true"
+                app:cardCornerRadius="50dp">
+
+                <View
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_margin="8dp"
+
+                    android:background="@drawable/ic_camera_alt_black_24dp"
+                    android:backgroundTint="@color/iconTintColor" />
+            </androidx.cardview.widget.CardView>
         </FrameLayout>
     </androidx.cardview.widget.CardView>
 
@@ -82,6 +83,7 @@
                 app:startIconDrawable="@drawable/ic_account_circle">
 
                 <EditText
+                    style="@style/modifiedEditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -95,6 +97,7 @@
                 app:startIconDrawable="@drawable/ic_local_phone">
 
                 <EditText
+                    style="@style/modifiedEditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -108,29 +111,32 @@
                 app:startIconDrawable="@drawable/ic_email">
 
                 <EditText
+                    style="@style/modifiedEditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <Button
                 android:id="@+id/btnUpdate"
+                style="@style/buttonOK"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
                 android:background="@drawable/login_button_bk"
-                android:text="@string/update"
-                android:layout_marginBottom="16dp"/>
+                android:text="@string/update" />
 
             <Button
                 android:id="@+id/btnLogout"
+                style="@style/buttonError"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
                 android:background="@drawable/login_button_bk"
-                android:text="@string/log_out"
-                android:layout_marginBottom="16dp"/>
+                android:text="@string/log_out" />
         </LinearLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

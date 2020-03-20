@@ -17,6 +17,25 @@
             android:icon="@drawable/ic_profile"
             android:title="@string/profile" />
     </group>
+    <item android:title="Social">
+        <menu>
+            <item
+                android:id="@+id/nav_instagram"
+                android:icon="@drawable/ic_instagram"
+                android:title="@string/instagram" />
+
+            <item
+                android:id="@+id/nav_twitter"
+                android:icon="@drawable/ic_twitter"
+                android:title="@string/twitter" />
+
+            <item
+                android:id="@+id/nav_facebook"
+                android:icon="@drawable/ic_facebook"
+                android:title="@string/facebook" />
+
+        </menu>
+    </item>
     <item android:title="">
         <menu>
             <item

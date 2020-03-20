@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.yunusbedir.mtekbilisimtestapp">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 
     <application
         android:allowBackup="true"
@@ -11,8 +13,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        android:usesCleartextTraffic="true">
-        <activity android:name=".ui.activity.photoActivity.PhotoDetailActivity"></activity>
+        android:usesCleartextTraffic="true"
+        tools:targetApi="m">
+        <activity android:name=".ui.activity.photoActivity.PhotoDetailActivity"/>
         <activity android:name=".ui.activity.newsActivity.NewsActivity" />
         <activity android:name=".ui.activity.dashBoardActivity.DashBoardActivity" />
         <activity android:name=".ui.activity.mainActivity.MainActivity">

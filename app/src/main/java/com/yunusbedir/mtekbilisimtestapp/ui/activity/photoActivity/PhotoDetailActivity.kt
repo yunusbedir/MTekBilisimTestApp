@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.MenuItem
 import com.bumptech.glide.Glide
 import com.yunusbedir.mtekbilisimtestapp.R
+import com.yunusbedir.mtekbilisimtestapp.util.DataSource
 import kotlinx.android.synthetic.main.activity_photo_detail.*
 
 class PhotoDetailActivity : AppCompatActivity() {
@@ -14,8 +15,12 @@ class PhotoDetailActivity : AppCompatActivity() {
         setContentView(R.layout.activity_photo_detail)
 
         setToolbar()
+        setImage()
+    }
+
+    private fun setImage() {
         Glide.with(this)
-            .load("https://www.aerobilet.com.tr/blog/wp-content/uploads/2018/04/baslik-6.jpg")
+            .load(DataSource.user?.urlImage)
             .into(imgPohoto)
     }
 

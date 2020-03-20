@@ -10,7 +10,16 @@
         <item name="android:windowContentTransitions">true</item>
     </style>
 
-    <style name="loginParent" >
+    <style name="ToolbarColored" parent="AppTheme">
+        <item name="android:textColorSecondary">@color/whiteTextColor</item>
+    </style>
+
+    <style name="TabLayoutColored" parent="AppTheme">
+        <item name="android:textColorSecondary">@color/textColor</item>
+        <item name="tabSelectedTextColor">@color/whiteTextColor</item>
+    </style>
+
+    <style name="loginParent">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:background">@color/loginBkColor</item>
@@ -34,15 +43,54 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textSize">@dimen/newsMoreTextSize</item>
-        <item name="android:backgroundTint">@color/primaryTextColor</item>
+        <item name="android:backgroundTint">@color/textColor</item>
     </style>
 
 
-    <style name="button">
+    <style name="buttonOK">
         <item name="android:background">@drawable/login_button_bk</item>
         <item name="android:textColor">@color/whiteTextColor</item>
         <item name="android:textStyle">bold</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="buttonError" parent="buttonOK">
+        <item name="backgroundTint">@color/colorError</item>
+    </style>
+
+    <style name="cardView">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="elevation">5dp</item>
+        <item name="cardCornerRadius">@dimen/loginCardRadius</item>
+        <item name="android:textColor">@color/textColor</item>
+    </style>
+
+    <style name="title" parent="@style/TextAppearance.AppCompat.Title">
+        <item name="android:textColor">@color/textColor</item>
+        <item name="android:textSize">@dimen/subTitleTextSize</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+
+    <style name="text">
+        <item name="android:textColor">@color/textColor</item>
+        <item name="android:textSize">@dimen/text_size</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+
+    <style name="container">
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="background">@color/colorBackGround</item>
+    </style>
+
+    <style name="modifiedTextInput">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:backgroundTint">@color/textColor</item>
+
     </style>
 </resources>

@@ -8,14 +8,17 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
+import com.bumptech.glide.Glide
 import com.google.android.material.navigation.NavigationView
 import com.google.android.material.tabs.TabLayout
 import com.yunusbedir.mtekbilisimtestapp.R
 import com.yunusbedir.mtekbilisimtestapp.adapter.categoryAdapter.CategoryFragmentAdapter
+import com.yunusbedir.mtekbilisimtestapp.util.DataSource
 import com.yunusbedir.mtekbilisimtestapp.util.extLogOut
 import kotlinx.android.synthetic.main.activity_dash_board.*
 import kotlinx.android.synthetic.main.app_bar_main.*
 import kotlinx.android.synthetic.main.content_main.*
+import kotlinx.android.synthetic.main.nav_header_main.view.*
 
 class DashBoardActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
@@ -82,6 +85,20 @@ class DashBoardActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
 
         layoutDrawer.addDrawerListener(toggle)
         toggle.syncState()
+        setNavHeader()
+
+    }
+
+    private fun setNavHeader() {
+        Glide
+            .with(this)
+            .load(DataSource.user?.urlImage)
+            .centerCrop()
+            .into(
+            navDrawer.getHeaderView(0).imgProfilePhoto
+        )
+
+        navDrawer.getHeaderView(0).tvName.text = DataSource.user?.name
     }
 
     private fun setToolbar() {

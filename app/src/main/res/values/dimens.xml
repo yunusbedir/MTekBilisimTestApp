@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!--dimes for design 3-->
+    <!--Textsize -->
     <dimen name="headerTextSize">22sp</dimen>
+    <dimen name="titleTextSize">20sp</dimen>
+    <dimen name="subTitleTextSize">18sp</dimen>
     <dimen name="newsMoreTextSize">12sp</dimen>
+    <dimen name="signup_text_margin_top">10dp</dimen>
+    <dimen name="text_size">14sp</dimen>
+
+
     <dimen name="loginCardRadius">20dp</dimen>
     <dimen name="loginViewsMargin">20dp</dimen>
 
-    <dimen name="signup_text_margin_top">10dp</dimen>
-    <dimen name="text_size">14sp</dimen>
 
 </resources>

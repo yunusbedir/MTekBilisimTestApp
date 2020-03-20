@@ -8,26 +8,29 @@
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
+
         android:layout_height="wrap_content">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize">
+            android:backgroundTint="@color/whiteTextColor"
+            android:layout_height="?attr/actionBarSize"
+            app:theme="@style/ToolbarColored">
             <TextView
-                android:layout_marginEnd="72dp"
+                android:layout_marginEnd="16dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/app_name"
                 android:gravity="center"
-                android:textColor="@color/whiteTextColor"
-                android:textAppearance="@style/TextAppearance.AppCompat.Title"/>
+                style="@style/headerText"/>
         </androidx.appcompat.widget.Toolbar>
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tabsSliding"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:theme="@style/TabLayoutColored"
             app:tabMode="scrollable" />
 
     </com.google.android.material.appbar.AppBarLayout>
