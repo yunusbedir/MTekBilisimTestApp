@@ -12,7 +12,7 @@ interface PharmacyAPIService {
 
     @Headers(
         "content-type: application/json",
-        "authorization: apikey 3nFj0vZEqNu9mo0bMd6uGD:6JtzC5bGa3dXH3FxBpeivw"
+        "authorization: apikey 5m0aeoUaNiYczxbBDroEPa:1tcq0faAsk2MZ7rGxR7uiV"
     )
     @GET("/health/dutyPharmacy")
     fun getPharmacyBaseModel(

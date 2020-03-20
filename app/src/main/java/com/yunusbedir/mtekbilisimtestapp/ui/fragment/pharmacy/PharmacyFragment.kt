@@ -48,8 +48,6 @@ class PharmacyFragment : Fragment() {
         btnFilter.setOnClickListener {
             setRetrofit(city!!, province!!)
         }
-
-
         super.onViewCreated(view, savedInstanceState)
     }
 
@@ -128,6 +126,7 @@ class PharmacyFragment : Fragment() {
             PharmacyAPIService::class.java)
         val call = service?.getPharmacyBaseModel(city, province)!!
         call.enqueue(object : Callback<PharmacyBaseModel> {
+
             override fun onFailure(call: Call<PharmacyBaseModel>, t: Throwable?) {
                 progressBar.visibility = View.GONE
                 context?.extToast("Pharmacy Not Found")
@@ -141,11 +140,7 @@ class PharmacyFragment : Fragment() {
                     setRecyclerView(response.body())
                 }else {
                     if (response.code() == 429) {
-                        Toast.makeText(
-                            DashBoardActivity.appCompatActivity,
-                            "limit is reached",
-                            Toast.LENGTH_LONG
-                        ).show()
+                        context?.extToast("limit is reached")
                     }
                 }
                 progressBar.visibility = View.GONE

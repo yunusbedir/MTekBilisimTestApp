@@ -5,7 +5,7 @@
     <dimen name="titleTextSize">20sp</dimen>
     <dimen name="subTitleTextSize">18sp</dimen>
     <dimen name="newsMoreTextSize">12sp</dimen>
-    <dimen name="signup_text_margin_top">10dp</dimen>
+    <dimen name="registerInputTextMarginTop">16dp</dimen>
     <dimen name="text_size">14sp</dimen>
 
 

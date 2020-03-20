@@ -8,7 +8,6 @@
     style="@style/cardView">
 
     <LinearLayout
-
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -22,42 +21,45 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textInputName"
+            app:startIconDrawable="@drawable/ic_account_circle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/signup_text_margin_top">
+            android:layout_marginTop="@dimen/registerInputTextMarginTop">
 
             <EditText
                 android:id="@+id/etName"
                 style="@style/modifiedEditText"
-                android:hint="@string/name"
+                android:autofillHints="@string/name"
                 android:inputType="text"
                 android:maxLines="1" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textInputMobileNumber"
+            app:startIconDrawable="@drawable/ic_local_phone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/signup_text_margin_top">
+            android:layout_marginTop="@dimen/registerInputTextMarginTop">
 
             <EditText
                 android:id="@+id/etMobileNumber"
                 style="@style/modifiedEditText"
-                android:hint="@string/mobile_number"
+                android:autofillHints="@string/mobile_number"
                 android:inputType="phone"
                 android:maxLines="1" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textInputEmail"
+            app:startIconDrawable="@drawable/ic_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/signup_text_margin_top">
+            android:layout_marginTop="@dimen/registerInputTextMarginTop">
 
             <EditText
                 android:id="@+id/etEmail"
                 style="@style/modifiedEditText"
-                android:hint="@string/email"
+                android:autofillHints="@string/email"
                 android:inputType="textEmailAddress"
                 android:maxLines="1" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -66,17 +68,19 @@
             android:id="@+id/textInputPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/signup_text_margin_top">
+            app:startIconDrawable="@drawable/ic_password"
+            android:layout_marginTop="@dimen/registerInputTextMarginTop">
 
             <EditText
                 android:id="@+id/etPassword"
                 style="@style/modifiedEditText"
-                android:hint="@string/login_password_hint"
+                android:autofillHints="@string/login_password_hint"
                 android:inputType="textPassword"
                 android:maxLines="1" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
+            android:layout_marginTop="16dp"
             android:id="@+id/btnRegister"
             style="@style/buttonOK"
             android:layout_gravity="center"

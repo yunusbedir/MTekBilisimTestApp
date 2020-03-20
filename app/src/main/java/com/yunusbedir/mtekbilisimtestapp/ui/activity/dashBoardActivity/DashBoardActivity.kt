@@ -1,11 +1,13 @@
 package com.yunusbedir.mtekbilisimtestapp.ui.activity.dashBoardActivity
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.net.toUri
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import com.bumptech.glide.Glide
@@ -58,8 +60,6 @@ class DashBoardActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
 
     private fun setTabLayout() {
         tabsSliding.setupWithViewPager(viewpager)
-        tabsSliding.tabMode = TabLayout.GRAVITY_CENTER
-        tabsSliding.tabGravity = TabLayout.GRAVITY_FILL
 
     }
 
@@ -90,13 +90,6 @@ class DashBoardActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
     }
 
     private fun setNavHeader() {
-        Glide
-            .with(this)
-            .load(DataSource.user?.urlImage)
-            .centerCrop()
-            .into(
-            navDrawer.getHeaderView(0).imgProfilePhoto
-        )
 
         navDrawer.getHeaderView(0).tvName.text = DataSource.user?.name
     }
@@ -122,5 +115,14 @@ class DashBoardActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
         }
         layoutDrawer.closeDrawer(GravityCompat.START)
         return true
+    }
+
+    override fun onBackPressed() {
+        if (layoutDrawer.isDrawerOpen(GravityCompat.START)) {
+            layoutDrawer.closeDrawer(GravityCompat.START)
+        } else {
+
+            super.onBackPressed()
+        }
     }
 }

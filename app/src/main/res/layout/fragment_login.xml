@@ -25,31 +25,32 @@
             android:id="@+id/textInputEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/loginViewsMargin">
+            android:layout_marginTop="@dimen/loginViewsMargin"
+            app:startIconDrawable="@drawable/ic_email">
 
             <EditText
                 android:id="@+id/etEmail"
                 style="@style/modifiedEditText"
-                android:hint="@string/email"
+                android:autofillHints="@string/email"
                 android:inputType="textEmailAddress"
                 android:maxLines="1"
-                android:text="yunusbedir@outlook.com.tr" />
+                android:text="@string/yunusbedir_outlook_com_tr" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textInputPassword"
-
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/loginViewsMargin">
+            android:layout_marginTop="@dimen/loginViewsMargin"
+            app:startIconDrawable="@drawable/ic_password">
 
             <EditText
                 android:id="@+id/etPassword"
                 style="@style/modifiedEditText"
-                android:hint="@string/login_password_hint"
+                android:autofillHints="@string/login_password_hint"
                 android:inputType="textPassword"
                 android:maxLines="1"
-                android:text="1234567" />
+                android:text="@string/_1234567" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
