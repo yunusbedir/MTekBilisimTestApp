@@ -1,20 +1,21 @@
 package com.yunusbedir.mtekbilisimtestapp.ui.fragment.newsFragment
 
-import android.os.AsyncTask
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ProgressBar
 import androidx.fragment.app.Fragment
 import com.yunusbedir.mtekbilisimtestapp.R
 import com.yunusbedir.mtekbilisimtestapp.adapter.newsAdapter.NewsAdapter
-import com.yunusbedir.mtekbilisimtestapp.common.LoadRSSAsyncTask
-import com.yunusbedir.mtekbilisimtestapp.model.Enclosure
-import com.yunusbedir.mtekbilisimtestapp.model.Items
+import com.yunusbedir.mtekbilisimtestapp.client.news.NewsAPIService
+import com.yunusbedir.mtekbilisimtestapp.client.news.NewsClientInstance
 import com.yunusbedir.mtekbilisimtestapp.model.RSSBaseModel
+import com.yunusbedir.mtekbilisimtestapp.util.extToast
 import kotlinx.android.synthetic.main.fragment_news.*
-import java.lang.StringBuilder
+import kotlinx.android.synthetic.main.fragment_news.progressBar
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 
 /**
@@ -35,14 +36,33 @@ class NewsFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        recyclerViewNews.adapter = NewsAdapter(context!! , loadRSS()!!)
+        setRetrofit()
         super.onViewCreated(view, savedInstanceState)
     }
 
-    private fun loadRSS(): RSSBaseModel?{
-        val urlGetData = StringBuilder(RSS_TO_JSON_API)
-        urlGetData.append(RSS_LINK)
-        return LoadRSSAsyncTask(progressBar).execute(urlGetData.toString()).get()
+    private fun setRetrofit() {
+
+        progressBar.visibility = View.VISIBLE
+
+        val service = NewsClientInstance.getInstance()?.create(
+            NewsAPIService::class.java
+        )
+
+        val call = service?.getNews(RSS_LINK)
+        call?.enqueue(object : Callback<RSSBaseModel>{
+            override fun onFailure(call: Call<RSSBaseModel>?, t: Throwable?) {
+                progressBar.visibility = View.GONE
+                context?.extToast("Pharmacy Not Found")
+            }
+
+            override fun onResponse(call: Call<RSSBaseModel>?, response: Response<RSSBaseModel>?) {
+                if (response!!.isSuccessful) {
+                    recyclerViewNews.adapter = NewsAdapter(context!!,response.body())
+                }
+                progressBar.visibility = View.GONE
+            }
+
+        })
     }
 
 }

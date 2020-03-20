@@ -1,4 +1,4 @@
-package com.yunusbedir.mtekbilisimtestapp.client
+package com.yunusbedir.mtekbilisimtestapp.client.pharmacy
 
 import com.yunusbedir.mtekbilisimtestapp.model.PharmacyBaseModel
 import retrofit2.Call
@@ -20,13 +20,4 @@ interface PharmacyAPIService {
         @Query("il") il: String
     ): Call<PharmacyBaseModel>
 
-    @Headers(
-        "content-type: application/json",
-        "authorization: apikey 3nFj0vZEqNu9mo0bMd6uGD:6JtzC5bGa3dXH3FxBpeivw"
-    )
-    @GET("/health/dutyPharmacy")
-    fun getPharmacyBaseModelList(
-        @Query("ilce") ilce: String,
-        @Query("il") il: String
-    ): Call<List<PharmacyBaseModel>>
 }

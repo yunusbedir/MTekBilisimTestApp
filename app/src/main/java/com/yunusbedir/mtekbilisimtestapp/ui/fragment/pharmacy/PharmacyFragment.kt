@@ -10,8 +10,8 @@ import androidx.fragment.app.Fragment
 import com.yunusbedir.mtekbilisimtestapp.R
 import com.yunusbedir.mtekbilisimtestapp.adapter.pharmacyAdapter.PharmacyAdapter
 import com.yunusbedir.mtekbilisimtestapp.adapter.spinnerAdapter.SpinnerAdapter
-import com.yunusbedir.mtekbilisimtestapp.client.PharmacyAPIService
-import com.yunusbedir.mtekbilisimtestapp.client.PharmacyClientInstance
+import com.yunusbedir.mtekbilisimtestapp.client.pharmacy.PharmacyAPIService
+import com.yunusbedir.mtekbilisimtestapp.client.pharmacy.PharmacyClientInstance
 import com.yunusbedir.mtekbilisimtestapp.database.csv.CSVAsyncTask
 import com.yunusbedir.mtekbilisimtestapp.model.City
 import com.yunusbedir.mtekbilisimtestapp.model.PharmacyBaseModel
@@ -125,7 +125,8 @@ class PharmacyFragment : Fragment() {
 
         progressBar.visibility = View.VISIBLE
 
-        val service = PharmacyClientInstance.getInstance()?.create(PharmacyAPIService::class.java)
+        val service = PharmacyClientInstance.getInstance()?.create(
+            PharmacyAPIService::class.java)
 
         val call = service?.getPharmacyBaseModel(city, province)!!
         call.enqueue(object : Callback<PharmacyBaseModel> {
