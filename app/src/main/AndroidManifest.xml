@@ -2,7 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.yunusbedir.mtekbilisimtestapp">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -11,7 +12,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ui.activity.newsActivity.NewsActivity"/>
+        <activity android:name=".ui.activity.photoActivity.PhotoDetailActivity"></activity>
+        <activity android:name=".ui.activity.newsActivity.NewsActivity" />
         <activity android:name=".ui.activity.dashBoardActivity.DashBoardActivity" />
         <activity android:name=".ui.activity.mainActivity.MainActivity">
             <intent-filter>

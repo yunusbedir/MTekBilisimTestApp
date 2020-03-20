@@ -1,9 +1,12 @@
 package com.yunusbedir.mtekbilisimtestapp.ui.fragment.profileFragment
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.app.ActivityOptionsCompat
+import androidx.core.view.ViewCompat
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
@@ -11,6 +14,7 @@ import com.yunusbedir.mtekbilisimtestapp.R
 import com.yunusbedir.mtekbilisimtestapp.database.UserRepository
 import com.yunusbedir.mtekbilisimtestapp.model.User
 import com.yunusbedir.mtekbilisimtestapp.ui.activity.dashBoardActivity.DashBoardActivity
+import com.yunusbedir.mtekbilisimtestapp.ui.activity.photoActivity.PhotoDetailActivity
 import com.yunusbedir.mtekbilisimtestapp.util.*
 import kotlinx.android.synthetic.main.fragment_profile.*
 
@@ -29,11 +33,24 @@ class ProfileFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+
+        initViews()
+
         btnLogout.setOnClickListener {
             DashBoardActivity.appCompatActivity?.extLogOut()
         }
 
-        initViews()
+        imgProfilePhoto.setOnClickListener {
+            DashBoardActivity.appCompatActivity?.let {
+                var intent = Intent(it, PhotoDetailActivity::class.java)
+                var options = ActivityOptionsCompat.makeSceneTransitionAnimation(
+                    it,
+                    imgProfilePhoto,
+                    ViewCompat.getTransitionName(imgProfilePhoto).toString()
+                )
+                startActivity(intent, options.toBundle())
+            }
+        }
 
         btnUpdate.setOnClickListener {
             val validateName = validateName(textInputName)
@@ -63,7 +80,6 @@ class ProfileFragment : Fragment() {
                 .with(this)
                 .load("https://www.aerobilet.com.tr/blog/wp-content/uploads/2018/04/baslik-6.jpg")
                 .error(R.drawable.ic_pharmacy)
-                .circleCrop()
                 .into(imgProfilePhoto)
 
         }
