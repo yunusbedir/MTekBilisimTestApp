@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.yunusbedir.mtekbilisimtestapp.R
-import com.yunusbedir.mtekbilisimtestapp.database.UserRepository
+import com.yunusbedir.mtekbilisimtestapp.database.room.UserRepository
 import com.yunusbedir.mtekbilisimtestapp.model.User
 import com.yunusbedir.mtekbilisimtestapp.ui.activity.mainActivity.MainActivity
 import com.yunusbedir.mtekbilisimtestapp.ui.fragment.loginFragment.LoginFragment
@@ -57,7 +57,8 @@ class RegisterFragment : Fragment() {
             password = textInputPassword.editText?.text.toString(),
             urlImage = ""
         )
-        UserRepository(activity!!.applicationContext).insert(user)
-        activity?.setFrameLayout(LoginFragment())
+        UserRepository(activity!!.applicationContext)
+            .insert(user)
+        activity.setFrameLayout(LoginFragment())
     }
 }

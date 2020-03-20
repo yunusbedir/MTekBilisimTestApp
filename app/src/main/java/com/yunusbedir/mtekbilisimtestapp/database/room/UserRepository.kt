@@ -1,4 +1,4 @@
-package com.yunusbedir.mtekbilisimtestapp.database
+package com.yunusbedir.mtekbilisimtestapp.database.room
 
 import android.content.Context
 import android.os.AsyncTask
@@ -19,20 +19,28 @@ class UserRepository(context: Context) {
     }
 
     fun insert(user: User) {
-        InsertUserAsyncTask(userDao).execute(user)
+        InsertUserAsyncTask(
+            userDao
+        ).execute(user)
     }
 
     fun update(user: User) {
 
-        UpdateUserAsyncTask(userDao).execute(user)
+        UpdateUserAsyncTask(
+            userDao
+        ).execute(user)
     }
 
     fun delete(user: User) {
-        DeleteUserAsyncTask(userDao).execute(user)
+        DeleteUserAsyncTask(
+            userDao
+        ).execute(user)
     }
 
     fun getUser(email: String, password: String): User? {
-        return GetUserAsyncTask(userDao).execute(
+        return GetUserAsyncTask(
+            userDao
+        ).execute(
             mapOf(
                 Key.EMAIL.name to email,
                 Key.PASSWORD.name to password

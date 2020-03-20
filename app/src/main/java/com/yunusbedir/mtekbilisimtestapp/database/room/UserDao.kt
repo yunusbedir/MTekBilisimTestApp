@@ -1,4 +1,4 @@
-package com.yunusbedir.mtekbilisimtestapp.database
+package com.yunusbedir.mtekbilisimtestapp.database.room
 
 import androidx.room.*
 import com.yunusbedir.mtekbilisimtestapp.model.User

@@ -12,7 +12,7 @@ import androidx.core.view.ViewCompat
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
 import com.yunusbedir.mtekbilisimtestapp.R
-import com.yunusbedir.mtekbilisimtestapp.database.UserRepository
+import com.yunusbedir.mtekbilisimtestapp.database.room.UserRepository
 import com.yunusbedir.mtekbilisimtestapp.ui.activity.dashBoardActivity.DashBoardActivity
 import com.yunusbedir.mtekbilisimtestapp.ui.activity.photoActivity.PhotoDetailActivity
 import com.yunusbedir.mtekbilisimtestapp.util.*
@@ -24,7 +24,7 @@ import kotlinx.android.synthetic.main.fragment_profile.*
  */
 class ProfileFragment : Fragment() {
 
-    val GALLERY_REQUEST_CODE = 1000
+    private val GALLERY_REQUEST_CODE = 1000
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -44,8 +44,8 @@ class ProfileFragment : Fragment() {
 
         imgProfilePhoto.setOnClickListener {
             DashBoardActivity.appCompatActivity?.let {
-                var intent = Intent(it, PhotoDetailActivity::class.java)
-                var options = ActivityOptionsCompat.makeSceneTransitionAnimation(
+                val intent = Intent(it, PhotoDetailActivity::class.java)
+                val options = ActivityOptionsCompat.makeSceneTransitionAnimation(
                     it,
                     imgProfilePhoto,
                     ViewCompat.getTransitionName(imgProfilePhoto).toString()
@@ -77,9 +77,9 @@ class ProfileFragment : Fragment() {
         textInputMobileNumber.error = null
         val user = DataSource.user
         user?.let {
-            textInputName.editText?.setText(it.name.toString())
-            textInputEmail.editText?.setText(it.eMail.toString())
-            textInputMobileNumber.editText?.setText(it.mobileNumber.toString())
+            textInputName.editText?.setText(it.name)
+            textInputEmail.editText?.setText(it.eMail)
+            textInputMobileNumber.editText?.setText(it.mobileNumber)
             setImage()
         }
 
@@ -91,26 +91,23 @@ class ProfileFragment : Fragment() {
             eMail = textInputEmail.editText?.text.toString()
             mobileNumber = textInputMobileNumber.editText?.text.toString()
         }
-        UserRepository(this.context!!).update(DataSource.user!!)
+        UserRepository(this.context!!)
+            .update(DataSource.user!!)
     }
 
     private fun pickFromGallery() {
-        val intent = Intent(Intent.ACTION_PICK);
-        intent.type = "image/*";
-        val mimeTypes = listOf<String>("image/jpeg", "image/png")
-        intent.putExtra(Intent.EXTRA_MIME_TYPES, mimeTypes.toTypedArray());
+        val intent = Intent(Intent.ACTION_PICK)
+        intent.type = "image/*"
+        val mimeTypes = listOf("image/jpeg", "image/png")
+        intent.putExtra(Intent.EXTRA_MIME_TYPES, mimeTypes.toTypedArray())
 
-        startActivityForResult(intent, GALLERY_REQUEST_CODE);
+        startActivityForResult(intent, GALLERY_REQUEST_CODE)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        // Result code is RESULT_OK only if the user selects an Image
-
-        // Result code is RESULT_OK only if the user selects an Image
         if (resultCode == Activity.RESULT_OK) {
             when (requestCode) {
                 GALLERY_REQUEST_CODE -> {
-                    //data.getData returns the content URI for the selected Image
                     val selectedImage: Uri? = data!!.data
                     DataSource.user?.urlImage = selectedImage.toString()
                     setImage()

@@ -1,13 +1,12 @@
 package com.yunusbedir.mtekbilisimtestapp.ui.fragment.loginFragment
 
 import android.os.Bundle
-import android.util.Patterns
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.yunusbedir.mtekbilisimtestapp.R
-import com.yunusbedir.mtekbilisimtestapp.database.UserRepository
+import com.yunusbedir.mtekbilisimtestapp.database.room.UserRepository
 import com.yunusbedir.mtekbilisimtestapp.ui.activity.dashBoardActivity.DashBoardActivity
 import com.yunusbedir.mtekbilisimtestapp.ui.activity.mainActivity.MainActivity
 import com.yunusbedir.mtekbilisimtestapp.ui.fragment.registerFragment.RegisterFragment
@@ -48,7 +47,9 @@ class LoginFragment : Fragment() {
     private fun login() {
         val email: String = etEmail.text.toString()
         val password: String = etPassword.text.toString()
-        val user = UserRepository(activity!!.applicationContext).getUser(email, password)
+        val user = UserRepository(
+            activity!!.applicationContext
+        ).getUser(email, password)
 
         if (user == null) {
             activity!! extToast "Email or password is incorrect"

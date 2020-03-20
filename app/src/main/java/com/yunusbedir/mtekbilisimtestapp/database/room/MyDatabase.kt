@@ -1,4 +1,4 @@
-package com.yunusbedir.mtekbilisimtestapp.database
+package com.yunusbedir.mtekbilisimtestapp.database.room
 
 import android.content.Context
 import androidx.room.Database
@@ -21,9 +21,9 @@ abstract class MyDatabase : RoomDatabase() {
         private lateinit var INSTANCE: MyDatabase
 
         fun getInstance(context: Context): MyDatabase {
-            if (!::INSTANCE.isInitialized) {
+            if (!Companion::INSTANCE.isInitialized) {
                 synchronized(MyDatabase::class) {
-                    if (!::INSTANCE.isInitialized) {
+                    if (!Companion::INSTANCE.isInitialized) {
                         INSTANCE = Room.databaseBuilder(
                             context.applicationContext,
                             MyDatabase::class.java,
