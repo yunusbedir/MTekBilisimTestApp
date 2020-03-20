@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.yunusbedir.mtekbilisimtestapp.R
 import com.yunusbedir.mtekbilisimtestapp.enums.Key
+import com.yunusbedir.mtekbilisimtestapp.ui.activity.mainActivity.MainActivity
 
 
 /**
@@ -29,4 +30,11 @@ fun <ClassName> Context.extStartActivity(cls: Class<ClassName>, bundle: Bundle? 
     var intent = Intent(this, cls)
     intent.putExtra(Key.BUNDLE.name, bundle)
     this.startActivity(intent)
+}
+
+fun AppCompatActivity.extLogOut() {
+    DataSource.user = null
+    this.extStartActivity(MainActivity::class.java)
+    this.finish()
+
 }

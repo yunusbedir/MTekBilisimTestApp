@@ -11,15 +11,15 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "user_table")
 data class User(
     @ColumnInfo(name = "name")
-    val name: String,
+    var name: String,
     @ColumnInfo(name = "mobile_number")
-    val mobileNumber: String,
+    var mobileNumber: String,
     @ColumnInfo(name = "email")
-    val eMail: String,
+    var eMail: String,
     @ColumnInfo(name = "password")
-    val password: String,
+    var password: String,
     @ColumnInfo(name = "image_url")
-    val urlImage: String,
+    var urlImage: String,
     @PrimaryKey(autoGenerate = true)
-    val ID: Int = 0
+    var ID: Int = 0
 )

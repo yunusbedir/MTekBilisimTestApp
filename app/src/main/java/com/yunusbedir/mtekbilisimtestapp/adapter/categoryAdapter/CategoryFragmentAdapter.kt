@@ -7,6 +7,7 @@ import androidx.fragment.app.FragmentPagerAdapter
 import com.yunusbedir.mtekbilisimtestapp.enums.Constant
 import com.yunusbedir.mtekbilisimtestapp.ui.fragment.newsFragment.NewsFragment
 import com.yunusbedir.mtekbilisimtestapp.ui.fragment.pharmacy.PharmacyFragment
+import com.yunusbedir.mtekbilisimtestapp.ui.fragment.profileFragment.ProfileFragment
 
 
 /**
@@ -21,7 +22,9 @@ class CategoryFragmentAdapter(var context: Context, fm:FragmentManager) : Fragme
             Constant.PHARMACY.id ->{
                 return PharmacyFragment()
             }
-            Constant.PROFILE.id ->{}
+            Constant.PROFILE.id ->{
+                return ProfileFragment()
+            }
         }
         return NewsFragment()
     }

@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">MTekBilisimTestApp</string>
     <string name="register">REGISTER</string>
-    <string name="login_email_hint">Email</string>
+    <string name="email">Email</string>
     <string name="login_password_hint">Password</string>
     <string name="signup_login_hint">Already have an account? Sign In</string>
     <string name="login_signup_hint">Don\'t have an account? Sign Up</string>
@@ -11,10 +11,11 @@
     <string name="forgot_password">Forgot Password?</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="log_out">Log Out</string>
     <string name="profile">PROFILE</string>
     <string name="pharmacy">PHARMACY</string>
     <string name="news">NEWS</string>
     <string name="filter">Filter</string>
     <string name="pharmacy_name">Pharmacy Name</string>
+    <string name="update">Update</string>
+    <string name="log_out">Log Out</string>
 </resources>

@@ -1,6 +1,8 @@
 package com.yunusbedir.mtekbilisimtestapp.ui.activity.dashBoardActivity
 
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuInflater
 import android.view.MenuItem
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
@@ -10,15 +12,21 @@ import com.google.android.material.navigation.NavigationView
 import com.google.android.material.tabs.TabLayout
 import com.yunusbedir.mtekbilisimtestapp.R
 import com.yunusbedir.mtekbilisimtestapp.adapter.categoryAdapter.CategoryFragmentAdapter
+import com.yunusbedir.mtekbilisimtestapp.util.extLogOut
 import kotlinx.android.synthetic.main.activity_dash_board.*
 import kotlinx.android.synthetic.main.app_bar_main.*
 import kotlinx.android.synthetic.main.content_main.*
 
 class DashBoardActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
+    companion object {
+        var appCompatActivity: AppCompatActivity? = null
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dash_board)
+        appCompatActivity = this
         setToolbar()
         setDrawer()
         setTabLayout()
@@ -29,6 +37,11 @@ class DashBoardActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
     private fun setPagerAdapter() {
         val pagerAdapter = CategoryFragmentAdapter(this, supportFragmentManager)
         viewpager.adapter = pagerAdapter
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.main, menu!!)
+        return true
     }
 
     private fun setNavigationView() {
@@ -47,6 +60,16 @@ class DashBoardActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
 
     }
 
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+
+        when (item.itemId) {
+            R.id.menuItemLogOut -> {
+                this.extLogOut()
+            }
+        }
+
+        return true
+    }
 
     private fun setDrawer() {
         val toggle = ActionBarDrawerToggle(
@@ -77,7 +100,7 @@ class DashBoardActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
                 viewpager.currentItem = 2
             }
             R.id.nav_log_out -> {
-                //logout
+                this.extLogOut()
             }
         }
         layoutDrawer.closeDrawer(GravityCompat.START)
